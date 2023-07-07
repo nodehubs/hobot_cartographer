@@ -184,7 +184,7 @@ sudo python3 /opt/tros/create_soft_link.py --foxy /opt/ros/foxy/ --tros /opt/tro
 source /opt/tros/setup.bash
 
 # 运行人体跟随
-ros2 launch hobot_cartographer cartographer.launch.py use_sim_time:=true
+ros2 launch hobot_cartographer cartographer.launch.py use_sim_time:=True
 ```
 
 
