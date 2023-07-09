@@ -13,7 +13,7 @@ SLAM并不是指某一种具体的算法，而是一种技术，能够实现这�
 | OriginBot智能机器人 | 古月居   | [点击跳转](https://www.originbot.org/)                       |
 | X3派机器人          | 轮趣科技 | [点击跳转](https://item.taobao.com/item.htm?spm=a230r.1.14.17.55e556912LPGGx&id=676436236906&ns=1&abbucket=12#detail) |
 | 履带智能车          | 微雪电子 | [点击跳转](https://detail.tmall.com/item.htm?abbucket=9&id=696078152772&rn=4d81bea40d392509d4a5153fb2c65a35&spm=a1z10.5-b-s.w4011-22714387486.159.12d33742lJtqRk) |
-| RDK X3 Robot        | 亚博智能 | [点击跳转](https://developer.horizon.ai/sunrise) |
+| RDK X3 Robot        | 多厂家 | [点击跳转](https://developer.horizon.ai/sunrise) |
 
 # 使用方式
 
