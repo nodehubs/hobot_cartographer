@@ -4,9 +4,7 @@ SLAM的全称是Simultaneous Localization And Mapping，即时定位与地图构
 
 SLAM并不是指某一种具体的算法，而是一种技术，能够实现这种技术的算法有很多，本功能所使用的Cartographer是google推出的一套基于图优化的SLAM算法，可以实现机器人在二维或三维条件下的定位及建图功能，这套算法的主要设计目的是满足机器人在计算资源有限的情况下，依然可以实时获取较高精度的地图。该功能支持机器人实物和Gazebo仿真两种体验方式。
 
-# 机器人实物
-
-## 物料清单
+# 物料清单
 
 以下机器人均已适配RDK X3
 
@@ -17,19 +15,19 @@ SLAM并不是指某一种具体的算法，而是一种技术，能够实现这�
 | 履带智能车          | 微雪电子 | [点击跳转](https://detail.tmall.com/item.htm?abbucket=9&id=696078152772&rn=4d81bea40d392509d4a5153fb2c65a35&spm=a1z10.5-b-s.w4011-22714387486.159.12d33742lJtqRk) |
 | RDK X3 Robot        | 亚博智能 | [点击跳转](https://developer.horizon.ai/sunrise) |
 
-## 使用方式
+# 使用方式
 
-### 准备工作
+## 准备工作
 
 1. 机器人具备运动底盘、相机及RDK套件，硬件已经连接并测试完毕；
 2. 已有ROS底层驱动，机器人可接收“/cmd_vel”指令运动，并根据指令正确运动；
 3. PC电脑端已经完成Ubuntu、ROS Foxy/Humble的安装。
 
-### 机器人组装
+## 机器人组装
 
 以下操作过程以OriginBot为例，满足条件的其他机器人使用方法类似。参考机器人官网的[使用指引](https://www.originbot.org/guide/quick_guide/)，完成机器人的硬件组装、镜像烧写及示例运行，确认机器人的基础功能可以顺利运行。
 
-### 安装功能包
+## 安装功能包
 
 **1.参考[OriginBot说明](https://github.com/nodehubs/originbot_minimal/blob/develop/README.md)，完成Originbit基础功能安装**
 
@@ -42,7 +40,7 @@ sudo apt update
 sudo apt install -y tros-hobot-cartographer
 ```
 
-### 运行cartographer
+## 运行cartographer
 
 **1.启动机器人底盘**
 
@@ -96,7 +94,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 ![interfaces](image/interfaces.jpg)
 
-# 话题
+## 话题
 
 ### 订阅话题
 
