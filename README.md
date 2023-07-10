@@ -33,6 +33,13 @@ SLAM并不是指某一种具体的算法，而是一种技术，能够实现这�
 
 **2.安装hobot-cartographer功能包**
 
+添加ros-foxy源
+```bash
+sudo apt update && sudo apt install curl -y
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+```
+
 启动机器人后，通过终端或者VNC连接机器人，点击[NodeHub hobot-cartographer](http://it-dev.horizon.ai/nodehubDetail/170117036053371409)右上方的“一键部署”按钮，复制如下命令在RDK的系统上运行，完成人体跟随相关Node的安装。
 
 ```bash
