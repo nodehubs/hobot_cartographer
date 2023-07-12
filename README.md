@@ -83,7 +83,7 @@ source /opt/ros/foxy/setup.bash
 ros2 launch hobot_cartographer cartographer.launch.py
 ```
 
-**3.查看SLAM动态效果**
+**4.查看SLAM动态效果**
 
 为了便于查看SLAM的完整过程，在同一网络下的PC端，启动Rviz上位机可视化软件：
 
@@ -95,7 +95,7 @@ ros2 run rviz2 rviz2
 
 ![cartographer_slam](image/cartographer_slam.png)
 
-**4.遥控机器人建立地图**
+**5.遥控机器人建立地图**
 
 为了让机器人建立周边环境的完整信息，我们还需要启动一个键盘控制节点：
 
