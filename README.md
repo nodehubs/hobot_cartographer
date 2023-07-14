@@ -99,12 +99,31 @@ ros2 run rviz2 rviz2
 
 为了让机器人建立周边环境的完整信息，我们还需要启动一个键盘控制节点：
 
-```
-sudo apt install ros-foxy-teleop-twist-keyboard
+```bash
+# 设置tros的环境变量
+source /opt/tros/setup.bash
+
+# 设置ros的环境变量
+source /opt/ros/foxy/setup.bash
+
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
 现在，我们就可以在键盘控制的终端中，点击键盘的上下左右键，控制机器人探索未知的环境啦，Rviz中会逐渐出现地图的全貌。
+
+**6.保存地图**
+
+建图完成后，可以使用如下指令将地图保存在当前路径下：
+
+```bash
+# 设置tros的环境变量
+source /opt/tros/setup.bash
+
+# 设置ros的环境变量
+source /opt/ros/foxy/setup.bash
+
+ros2 run nav2_map_server map_saver_cli -f my_map --ros-args -p save_map_timeout:=10000
+```
 
 ![e646ac75c6](image/e646ac75c6.gif)
 
