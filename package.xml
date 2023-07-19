@@ -11,7 +11,6 @@
 
   <depend>ros-foxy-cartographer-ros</depend>
   <depend>libgraphicsmagick++-q16-12</depend>
-  <depend>tros-ros-config</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
