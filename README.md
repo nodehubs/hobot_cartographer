@@ -116,6 +116,9 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 建图完成后，可以使用如下指令将地图保存在当前路径下：
 
 ```bash
+# 安装tros-hobot-nav2
+sudo apt install -y tros-hobot-nav2
+
 # 设置tros的环境变量
 source /opt/tros/setup.bash
 
