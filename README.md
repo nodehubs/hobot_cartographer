@@ -49,7 +49,7 @@ source /opt/tros/setup.bash
 
 # Set up the ROS environment variables
 source /opt/ros/foxy/setup.bash
-```# Launch OriginBot
+# Launch OriginBot
 ros2 launch originbot_base robot.launch.py 
 ```
 
@@ -97,7 +97,8 @@ Once successfully launched, add Map, LaserScan, TF, RobotModel, and other displa
 
 **5. Remotely Control the Robot to Build Maps**
 
-To enable the robot to obtain complete information about the surrounding environment, we also need to launch a keyboard control node:```bash
+To enable the robot to obtain complete information about the surrounding environment, we also need to launch a keyboard control node:
+```bash
 # Set environment variables for TROS
 source /opt/tros/setup.bash
 
