@@ -31,9 +31,15 @@ SLAM并不是指某一种具体的算法，而是一种技术，能够实现这�
 
 启动机器人后，通过终端或者VNC连接机器人，点击[NodeHub hobot-cartographer](http://it-dev.horizon.ai/nodehubDetail/170117036053371409)右上方的“一键部署”按钮，复制如下命令在RDK的系统上运行，完成hobot-cartographer功能包的安装。
 
+tros foxy 版本
 ```bash
 sudo apt update
 sudo apt install -y tros-hobot-cartographer
+```
+tros humbel 版本
+```bash
+sudo apt update
+sudo apt install -y tros-humble-hobot-cartographer
 ```
 
 ## 运行cartographer
@@ -44,6 +50,8 @@ sudo apt install -y tros-hobot-cartographer
 
 启动机器人，通过终端或者VNC连接机器人，OriginBot的启动命令如下：
 
+
+tros foxy 版本
 ```bash
 # 设置tros的环境变量
 source /opt/tros/setup.bash
@@ -55,10 +63,20 @@ source /opt/ros/foxy/setup.bash
 ros2 launch originbot_base robot.launch.py 
 ```
 
+tros humbel 版本
+```bash
+# 设置tros的环境变量
+source /opt/tros/humble/setup.bash
+
+# 启动OriginBot
+ros2 launch originbot_base robot.launch.py 
+```
+
 **2.启动激光雷达**
 
 通过终端或者VNC连接机器人，激光雷达启动命令如下：
 
+tros foxy 版本
 ```bash
 # 设置tros的环境变量
 source /opt/tros/setup.bash
@@ -70,16 +88,35 @@ source /opt/ros/foxy/setup.bash
 ros2 launch ydlidar_ros2_driver ydlidar_launch.py
 ```
 
+tros humbel 版本
+```bash
+# 设置tros的环境变量
+source /opt/tros/humble/setup.bash
+
+# 运行激光雷达
+ros2 launch ydlidar_ros2_driver ydlidar_launch.py
+```
+
 **3.启动cartographer**
 
 通过终端或者VNC连接机器人，cartographer启动命令如下：
 
+tros foxy 版本
 ```bash
 # 设置tros的环境变量
 source /opt/tros/setup.bash
 
 # 设置ros的环境变量
 source /opt/ros/foxy/setup.bash
+
+# 运行cartographer
+ros2 launch hobot_cartographer cartographer.launch.py
+```
+
+tros humbel 版本
+```bash
+# 设置tros的环境变量
+source /opt/tros/humble/setup.bash
 
 # 运行cartographer
 ros2 launch hobot_cartographer cartographer.launch.py
@@ -101,6 +138,7 @@ ros2 run rviz2 rviz2
 
 为了让机器人建立周边环境的完整信息，我们还需要启动一个键盘控制节点：
 
+tros foxy 版本
 ```bash
 # 设置tros的环境变量
 source /opt/tros/setup.bash
@@ -111,12 +149,21 @@ source /opt/ros/foxy/setup.bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
+tros humble 版本
+```bash
+# 设置tros的环境变量
+source /opt/tros/humble/setup.bash
+
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
 现在，我们就可以在键盘控制的终端中，点击键盘的上下左右键，控制机器人探索未知的环境啦，Rviz中会逐渐出现地图的全貌。
 
 **6.保存地图**
 
 建图完成后，可以使用如下指令将地图保存在当前路径下：
 
+tros foxy 版本
 ```bash
 # 安装tros-hobot-nav2
 sudo apt install -y tros-hobot-nav2
@@ -126,6 +173,17 @@ source /opt/tros/setup.bash
 
 # 设置ros的环境变量
 source /opt/ros/foxy/setup.bash
+
+ros2 run nav2_map_server map_saver_cli -f my_map --ros-args -p save_map_timeout:=10000
+```
+
+tros humble 版本
+```bash
+# 安装tros-hobot-nav2
+sudo apt install -y tros-humble-hobot-nav2
+
+# 设置tros的环境变量
+source /opt/tros/humble/setup.bash
 
 ros2 run nav2_map_server map_saver_cli -f my_map --ros-args -p save_map_timeout:=10000
 ```

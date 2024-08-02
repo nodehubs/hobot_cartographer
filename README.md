@@ -30,9 +30,15 @@ The following robots are all compatible with RDK X3
 
 After starting the robot, connect to the robot through the terminal or VNC, click the "One-click Deployment" button in [NodeHub hobot-cartographer](http://it-dev.horizon.ai/nodehubDetail/170117036053371409) in the upper right corner, copy and run the following commands on the RDK system to install the hobot-cartographer package.
 
+tros foxy:
 ```bash
 sudo apt update
 sudo apt install -y tros-hobot-cartographer
+```
+tros humble:
+```bash
+sudo apt update
+sudo apt install -y tros-humble-hobot-cartographer
 ```
 
 ## Run cartographer
@@ -43,6 +49,7 @@ Taking OriginBot as an example here, the commands for different types of robots 
 
 Start the robot and connect to it through the terminal or VNC. The startup command for OriginBot is as follows:
 
+tros foxy:
 ```bash
 # Set up the tros environment variables
 source /opt/tros/setup.bash
@@ -52,11 +59,20 @@ source /opt/ros/foxy/setup.bash
 # Launch OriginBot
 ros2 launch originbot_base robot.launch.py 
 ```
+tros humble:
+```bash
+# Set up the tros environment variables
+source /opt/tros/humble/setup.bash
+
+# Launch OriginBot
+ros2 launch originbot_base robot.launch.py 
+```
 
 **2. Start the Lidar**
 
 To start the lidar, connect to the robot through the terminal or VNC, and use the following command:
 
+tros foxy:
 ```bash
 # Set the environment variables for tros
 source /opt/tros/setup.bash
@@ -67,17 +83,35 @@ source /opt/ros/foxy/setup.bash
 # Launch the lidar
 ros2 launch ydlidar_ros2_driver ydlidar_launch.py
 ```
+tros humble:
+```bash
+# Set the environment variables for tros
+source /opt/tros/humble/setup.bash
+
+# Launch the lidar
+ros2 launch ydlidar_ros2_driver ydlidar_launch.py
+```
+
 
 **3. Start Cartographer**
 
 To start cartographer, connect to the robot through the terminal or VNC, and use the following command:
 
+tros foxy:
 ```bash
 # Set the environment variables for tros
 source /opt/tros/setup.bash
 
 # Set the environment variables for ros
 source /opt/ros/foxy/setup.bash
+
+# Launch cartographer
+ros2 launch hobot_cartographer cartographer.launch.py
+```
+tros humble:
+```bash
+# Set the environment variables for tros
+source /opt/tros/humble/setup.bash
 
 # Launch cartographer
 ros2 launch hobot_cartographer cartographer.launch.py
@@ -98,12 +132,21 @@ Once successfully launched, add Map, LaserScan, TF, RobotModel, and other displa
 **5. Remotely Control the Robot to Build Maps**
 
 To enable the robot to obtain complete information about the surrounding environment, we also need to launch a keyboard control node:
+
+tros foxy:
 ```bash
 # Set environment variables for TROS
 source /opt/tros/setup.bash
 
 # Set environment variables for ROS
 source /opt/ros/foxy/setup.bash
+
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+tros humble:
+```bash
+# Set environment variables for TROS
+source /opt/tros/humble/setup.bash
 
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
@@ -114,6 +157,7 @@ Now, we can control the robot to explore unknown environments by pressing the ar
 
 After mapping is complete, you can use the following command to save the map in the current path:
 
+tros foxy:
 ```bash
 # Install tros-hobot-nav2
 sudo apt install -y tros-hobot-nav2
@@ -123,6 +167,16 @@ source /opt/tros/setup.bash
 
 # Set environment variables for ROS
 source /opt/ros/foxy/setup.bash
+
+ros2 run nav2_map_server map_saver_cli -f my_map --ros-args -p save_map_timeout:=10000
+```
+tros humble:
+```bash
+# Install tros-hobot-nav2
+sudo apt install -y tros-humble-hobot-nav2
+
+# Set environment variables for TROS
+source /opt/tros/humble/setup.bash
 
 ros2 run nav2_map_server map_saver_cli -f my_map --ros-args -p save_map_timeout:=10000
 ```
